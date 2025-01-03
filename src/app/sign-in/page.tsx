@@ -3,11 +3,11 @@ import { SignInForm } from "@/features/auth/components/sign-in-form";
 
 const SignInPage = () => {
   return (
-    <div className="flex-1 flex flex-col justify-center items-center">
+    <div className="flex flex-1 flex-col items-center justify-center">
       <CardCompact
         title="Sign In"
         description="Sign in to access the product management system"
-        className="w-full max-w-[420px] animate-fade-from-top"
+        className="animate-fade-from-top w-full max-w-[420px]"
         content={<SignInForm />}
       />
     </div>

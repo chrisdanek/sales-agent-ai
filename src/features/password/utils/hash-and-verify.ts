@@ -11,7 +11,7 @@ export const hashPassword = async (password: string) => {
 
 export const verifyPasswordHash = async (
   passwordHash: string,
-  password: string
+  password: string,
 ) => {
   return await verify(passwordHash, password);
 };

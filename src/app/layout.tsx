@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "The Road to Next",
-  description: "My Road to Next application ...",
+  title: "QPIK Product Agent",
+  description: "My Product Agent application ...",
 };
 
 export default function RootLayout({
@@ -16,18 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
+      <head>
+        <link rel="icon" href="/favicon.webp" type="image/webp" />
+      </head>
       <body className={`antialiased`}>
         <ThemeProvider>
           <Header />
-          <main
-            className="
-            min-h-screen flex-1
-            overflow-y-auto overflow-x-hidden
-            py-24 px-8
-            bg-secondary/20
-            flex flex-col
-          "
-          >
+          <main className="flex min-h-screen flex-1 flex-col overflow-y-auto overflow-x-hidden bg-secondary/20 px-8 py-24">
             {children}
           </main>
           <Toaster expand />

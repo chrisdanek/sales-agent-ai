@@ -4,7 +4,6 @@ import { setCookieByKey } from "@/actions/cookies";
 import {
   ActionState,
   fromErrorToActionState,
-  toActionState,
 } from "@/components/form/utils/to-action-state";
 import { prisma } from "@/lib/prisma";
 import { productPath, productsPath } from "@/paths";
@@ -14,15 +13,18 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 
 const upsertProductSchema = z.object({
-  name: z.string().min(1).max(191),
-  description: z.string().min(1).max(1024),
-  price: z.coerce.number().positive(),
+  name: z.string().min(1, "Name is required").max(191, "Name is too long"),
+  description: z
+    .string()
+    .min(1, "Description is required")
+    .max(1024, "Description is too long"),
+  price: z.coerce.number().nonnegative("Price must be not negative").default(0),
 });
 
 export const upsertProduct = async (
   id: string | undefined,
   _actionState: ActionState,
-  formData: FormData
+  formData: FormData,
 ) => {
   try {
     const data = upsertProductSchema.parse({
@@ -52,5 +54,6 @@ export const upsertProduct = async (
     redirect(productPath(id));
   }
 
-  return toActionState("SUCCESS", "Product created");
+  await setCookieByKey("toast", "Product created");
+  redirect(productsPath());
 };
