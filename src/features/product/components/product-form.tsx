@@ -65,6 +65,11 @@ const ProductUpsertForm = ({ product }: ProductUpsertFormProps) => {
         </div>
       </div>
 
+      <div>
+        <Label htmlFor="image">Image (PNG, JPG)</Label>
+        <input type="file" accept="image/png, image/jpeg" name="image" />
+      </div>
+
       <SubmitButton label={product ? "Edit" : "Create"} />
     </Form>
   );

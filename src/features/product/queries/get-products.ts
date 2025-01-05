@@ -5,5 +5,12 @@ export const getProducts = async () => {
     orderBy: {
       createdAt: "desc",
     },
+    include: {
+      photos: {
+        select: {
+          url: true,
+        },
+      },
+    },
   });
 };

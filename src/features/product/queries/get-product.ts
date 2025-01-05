@@ -5,5 +5,12 @@ export const getProduct = async (id: string) => {
     where: {
       id,
     },
+    include: {
+      photos: {
+        select: {
+          url: true,
+        },
+      },
+    },
   });
 };

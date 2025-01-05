@@ -1,0 +1,12 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .title { fill: white; font-size: 180px; font-family: Arial; font-weight: bold; opacity: 0.3; transform: rotate(-45deg); transform-origin: center; text-anchor: middle;}
+        </style>
+        <defs>
+          <filter id="shadow">
+            <feDropShadow dx="4" dy="4" stdDeviation="4" flood-opacity="0.3"/>
+          </filter>
+        </defs>
+        <text x="25%" y="55%" class="title" filter="url(#shadow)">QPIK</text>
+        
+      </svg>
